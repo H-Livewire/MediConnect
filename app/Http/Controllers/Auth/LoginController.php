@@ -13,18 +13,18 @@ class LoginController extends Controller
 {
     public function create(): View
     {
-        return view('auth.login');
+        return view('auth.access', ['panel' => 'login']);
     }
 
     public function store(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
+        $credentials = $request->validateWithBag('login', [
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
         ]);
 
         if (! Auth::attempt($credentials, $request->boolean('remember'))) {
-            throw ValidationException::withMessages(['email' => 'These credentials do not match our records.']);
+            throw ValidationException::withMessages(['email' => 'These credentials do not match our records.'])->errorBag('login');
         }
 
         $request->session()->regenerate();

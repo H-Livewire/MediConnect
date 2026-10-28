@@ -125,23 +125,6 @@
     </div>
 </div>
 
-<section class="call-action overlay" data-stellar-background-ratio="0.5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <div class="content">
-                    <h2>Do you need Emergency Medical Care? Call 114</h2>
-                    <p>In an emergency, do not wait for an appointment. Call emergency services or go to the nearest hospital immediately.</p>
-                    <div class="button">
-                        <a href="{{ route('contact') }}" class="btn">Contact Now</a>
-                        <a href="{{ route('about') }}" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 @if ($hospitals->isNotEmpty())
 <section class="portfolio section">
     <div class="container">
@@ -191,7 +174,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <div class="button"><a href="{{ route('doctors.index') }}" class="btn mc-btn-inline">View All Doctors</a></div>
+                <div class="button mc-view-all"><a href="{{ route('doctors.index') }}" class="btn mc-btn-inline">View All Doctors</a></div>
             </div>
         </div>
     </div>
@@ -228,7 +211,7 @@
                 </form>
             </div>
             <div class="col-lg-6 col-md-12">
-                <div class="appointment-image"><img src="{{ asset('mediplus/img/contact-img.png') }}" alt=""></div>
+                <div class="appointment-image"><img src="{{ asset('mediplus/img/appointment-care.jpg') }}" alt=""></div>
             </div>
         </div>
     </div>

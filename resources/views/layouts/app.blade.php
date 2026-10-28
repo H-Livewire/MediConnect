@@ -1,9 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @include('partials.theme-init')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'MediConnect') | MediConnect</title>
     <link rel="icon" href="{{ asset('mediplus/img/favicon.png') }}">
@@ -21,6 +22,8 @@
     <link rel="stylesheet" href="{{ asset('mediplus/style.css') }}">
     <link rel="stylesheet" href="{{ asset('mediplus/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('mediplus/mediconnect.css') }}">
+    <link rel="stylesheet" href="{{ asset('mediplus/mediconnect-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('mediplus/mediconnect-dark.css') }}">
     @stack('styles')
 </head>
 <body>
@@ -66,6 +69,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="{{ asset('mediplus/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('mediplus/js/main.js') }}"></script>
+    @include('partials.theme-script')
     @stack('scripts')
 </body>
 </html>

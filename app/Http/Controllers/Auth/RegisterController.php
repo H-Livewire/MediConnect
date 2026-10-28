@@ -14,7 +14,7 @@ class RegisterController extends Controller
 {
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.access', ['panel' => 'register']);
     }
 
     public function store(RegisterRequest $request): RedirectResponse
