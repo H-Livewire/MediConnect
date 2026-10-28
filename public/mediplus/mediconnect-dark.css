@@ -250,3 +250,5 @@
 [data-theme="dark"] .mc-row-between a:hover, [data-theme="dark"] .mc-switch a:hover { color: #fff; }
 [data-theme="dark"] .team .t-bottom h2 a { color: #f1f3f9; }
 [data-theme="dark"] .team .t-bottom h2 a:hover { color: #1a76d1; }
+[data-theme="dark"] .mc-pass-toggle { color: #8b92a8; }
+[data-theme="dark"] .mc-pass-toggle:hover, [data-theme="dark"] .mc-pass-toggle.is-visible { color: #5aa7ff; }

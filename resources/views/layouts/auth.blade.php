@@ -18,21 +18,14 @@
 </head>
 <body class="mc-auth-body">
     <div class="mc-auth">
-        <aside class="mc-auth-visual" style="background-image: url('{{ asset('mediplus/img/login-bg.jpg') }}')">
-            <div class="mc-auth-visual-inner">
-                <a href="{{ route('home') }}" class="mc-logo mc-logo-light">Medi<span>Connect</span></a>
-                <div class="mc-auth-tagline">
-                    <h2>Your health, one booking away.</h2>
-                    <p>Find trusted doctors and hospitals across Tanzania and book appointments online in minutes.</p>
-                </div>
-            </div>
-        </aside>
+        <aside class="mc-auth-visual" style="background-image: url('{{ asset('mediplus/img/login-bg.jpg') }}')" role="img" aria-label="Healthcare illustration"></aside>
         <main class="mc-auth-panel">
             <div class="mc-auth-top">
                 <a href="{{ route('home') }}" class="mc-auth-back"><i class="fa fa-angle-left"></i> Back to home</a>
                 @include('partials.theme-toggle')
             </div>
             <div class="mc-auth-card">
+                <a href="{{ route('home') }}" class="mc-logo mc-auth-logo">Medi<span>Connect</span></a>
                 @yield('content')
             </div>
         </main>

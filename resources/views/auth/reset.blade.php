@@ -15,12 +15,12 @@
         </div>
         <div class="mc-field">
             <label for="r-password">New password</label>
-            <input id="r-password" type="password" name="password" placeholder="Min 8 characters" required autocomplete="new-password">
+            @include('partials.password-input', ['id' => 'r-password', 'name' => 'password', 'placeholder' => 'Min 8 characters', 'autocomplete' => 'new-password'])
             @error('password')<small class="mc-error">{{ $message }}</small>@enderror
         </div>
         <div class="mc-field">
             <label for="r-password2">Confirm password</label>
-            <input id="r-password2" type="password" name="password_confirmation" required autocomplete="new-password">
+            @include('partials.password-input', ['id' => 'r-password2', 'name' => 'password_confirmation', 'placeholder' => 'Repeat password', 'autocomplete' => 'new-password'])
         </div>
         <button type="submit" class="btn mc-block">Reset password</button>
     </form>

@@ -20,7 +20,7 @@
             </div>
             <div class="mc-field">
                 <label for="login-password">Password</label>
-                <input id="login-password" type="password" name="password" placeholder="Your password" autocomplete="current-password" required>
+                @include('partials.password-input', ['id' => 'login-password', 'name' => 'password', 'placeholder' => 'Your password', 'autocomplete' => 'current-password'])
                 @if ($errors->login->has('password'))<small class="mc-error">{{ $errors->login->first('password') }}</small>@endif
             </div>
             <div class="mc-row-between">
@@ -58,12 +58,12 @@
             <div class="mc-two">
                 <div class="mc-field">
                     <label for="reg-password">Password</label>
-                    <input id="reg-password" type="password" name="password" placeholder="Min 8 characters" autocomplete="new-password" required>
+                    @include('partials.password-input', ['id' => 'reg-password', 'name' => 'password', 'placeholder' => 'Min 8 characters', 'autocomplete' => 'new-password'])
                     @if ($errors->register->has('password'))<small class="mc-error">{{ $errors->register->first('password') }}</small>@endif
                 </div>
                 <div class="mc-field">
                     <label for="reg-password2">Confirm password</label>
-                    <input id="reg-password2" type="password" name="password_confirmation" placeholder="Repeat password" autocomplete="new-password" required>
+                    @include('partials.password-input', ['id' => 'reg-password2', 'name' => 'password_confirmation', 'placeholder' => 'Repeat password', 'autocomplete' => 'new-password'])
                 </div>
             </div>
             <button type="submit" class="btn mc-block">Create account</button>

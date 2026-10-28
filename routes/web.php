@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ListingController as AdminListingController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
@@ -46,6 +48,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/book', [AppointmentController::class, 'store'])->name('appointments.store');
         Route::get('/appointments/{appointment:reference}/confirmation', [AppointmentController::class, 'confirmation'])->name('appointments.confirmation');
         Route::patch('/appointments/{appointment:reference}/cancel', [AppointmentController::class, 'cancel'])->name('appointments.cancel');
+    });
+
+    Route::middleware('role:super_admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', AdminDashboardController::class)->name('dashboard');
+        Route::get('/hospitals', [AdminListingController::class, 'hospitals'])->name('hospitals');
+        Route::get('/doctors', [AdminListingController::class, 'doctors'])->name('doctors');
+        Route::get('/appointments', [AdminListingController::class, 'appointments'])->name('appointments');
+        Route::get('/appointments/export', [AdminListingController::class, 'exportAppointments'])->name('appointments.export');
+        Route::get('/users', [AdminListingController::class, 'users'])->name('users');
+        Route::get('/messages', [AdminListingController::class, 'messages'])->name('messages');
     });
 
     Route::patch('/appointments/{appointment:reference}/status', [AppointmentController::class, 'updateStatus'])
