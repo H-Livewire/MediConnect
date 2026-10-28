@@ -174,3 +174,6 @@
 .mc-alert-danger { background: #fdecee; color: #2c2d3f; border-left: 4px solid #e5384a; }
 .mc-countdown { font-weight: 700; font-variant-numeric: tabular-nums; color: #e5384a; }
 @media (prefers-reduced-motion: reduce) { .mc-spinner { animation-duration: 1.6s; } }
+
+/* Get Started button: rounded corners */
+.header .header-inner .mc-header-end .get-quote .btn { border-radius: 30px; }
