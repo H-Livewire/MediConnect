@@ -4,7 +4,7 @@
 @section('content')
 @include('partials.breadcrumbs', ['title' => 'Our Doctors'])
 
-<section class="team single-page section">
+<section class="team single-page section mc-doctors-bg">
     <div class="container">
         <form method="GET" action="{{ route('doctors.index') }}" class="mc-filter appointment">
             <div class="form row">

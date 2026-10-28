@@ -7,6 +7,7 @@
             <p>{{ $doctor->specialty->name }}</p>
             <h2><a href="{{ route('doctors.show', $doctor) }}">{{ $doctor->user->name }}</a></h2>
             <p class="mc-muted">{{ $doctor->hospital->name }}</p>
+            @include('partials.stars', ['rating' => $doctor->averageRating(), 'count' => $doctor->ratingsTotal()])
             <a href="{{ route('appointments.create', ['doctor' => $doctor->id]) }}" class="btn mc-card-btn">Book Appointment</a>
         </div>
     </div>

@@ -5,12 +5,12 @@ use App\Http\Controllers\Admin\ListingController as AdminListingController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\PageController;
+use App\Livewire\Auth\Access;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -27,13 +27,9 @@ Route::get('/hospitals', [HospitalController::class, 'index'])->name('hospitals.
 Route::get('/hospitals/{hospital}', [HospitalController::class, 'show'])->name('hospitals.show');
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'create'])->name('login');
-    Route::post('/login', [LoginController::class, 'store'])->middleware('throttle:10,1');
-    Route::get('/register', [RegisterController::class, 'create'])->name('register');
-    Route::post('/register', [RegisterController::class, 'store'])->middleware('throttle:10,1');
-
-    Route::get('/forgot-password', [PasswordResetController::class, 'request'])->name('password.request');
-    Route::post('/forgot-password', [PasswordResetController::class, 'email'])->middleware('throttle:5,1')->name('password.email');
+    Route::get('/login', Access::class)->name('login');
+    Route::get('/register', Access::class)->name('register');
+    Route::get('/forgot-password', Access::class)->name('password.request');
     Route::get('/reset-password/{token}', [PasswordResetController::class, 'reset'])->name('password.reset');
     Route::post('/reset-password', [PasswordResetController::class, 'update'])->name('password.update');
 });
@@ -47,6 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/book', [AppointmentController::class, 'create'])->name('appointments.create');
         Route::post('/book', [AppointmentController::class, 'store'])->name('appointments.store');
         Route::get('/appointments/{appointment:reference}/confirmation', [AppointmentController::class, 'confirmation'])->name('appointments.confirmation');
+        Route::post('/doctors/{doctor}/rate', [DoctorController::class, 'rate'])->name('doctors.rate');
         Route::patch('/appointments/{appointment:reference}/cancel', [AppointmentController::class, 'cancel'])->name('appointments.cancel');
     });
 

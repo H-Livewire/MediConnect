@@ -5,7 +5,7 @@
     @include('partials.theme-init')
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Get Started') | MediConnect</title>
+    <title>{{ trim($__env->yieldContent('title')) ?: ($title ?? 'Get Started') }} | MediConnect</title>
     <link rel="icon" href="{{ asset('mediplus/img/favicon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('mediplus/css/bootstrap.min.css') }}">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('mediplus/mediconnect.css') }}">
     <link rel="stylesheet" href="{{ asset('mediplus/mediconnect-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('mediplus/mediconnect-dark.css') }}">
+    @livewireStyles
 </head>
 <body class="mc-auth-body">
     <div class="mc-auth">
@@ -26,10 +27,11 @@
             </div>
             <div class="mc-auth-card">
                 <a href="{{ route('home') }}" class="mc-logo mc-auth-logo">Medi<span>Connect</span></a>
-                @yield('content')
+                @isset($slot){{ $slot }}@else @yield('content') @endisset
             </div>
         </main>
     </div>
+    @livewireScripts
     @include('partials.theme-script')
     @stack('scripts')
 </body>

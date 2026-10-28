@@ -1,0 +1,74 @@
+
+/* ---------- Manual dark-mode rules (MediConnect components) ---------- */
+[data-theme="dark"] { color-scheme: dark; }
+[data-theme="dark"] body { background: #14151f; color: #aab0c4; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6 { color: #f1f3f9; }
+[data-theme="dark"] .section-title h2 { color: #f1f3f9; }
+[data-theme="dark"] .section-title p { color: #aab0c4; }
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { background-color: #1e1f2e; color: #f1f3f9; border-color: #34364c; }
+[data-theme="dark"] ::placeholder { color: #8b92a8; opacity: 1; }
+[data-theme="dark"] .appointment .form input, [data-theme="dark"] .appointment .form textarea { background: #1e1f2e; color: #f1f3f9; }
+[data-theme="dark"] .nice-select, [data-theme="dark"] .nice-select .list { background: #1e1f2e; color: #f1f3f9; border-color: #34364c; }
+[data-theme="dark"] .nice-select .option { color: #aab0c4; }
+[data-theme="dark"] .nice-select .option:hover, [data-theme="dark"] .nice-select .option.focus, [data-theme="dark"] .nice-select .option.selected.focus { background: #1a76d1; color: #fff; }
+[data-theme="dark"] .appointment, [data-theme="dark"] .appointment.single-page { background: #14151f; }
+[data-theme="dark"] .team .single-team { background: #1e1f2e; box-shadow: 0 0 10px #00000066; }
+[data-theme="dark"] .single-service, [data-theme="dark"] .single-features { background: transparent; }
+
+[data-theme="dark"] .header .header-inner { background: #1e1f2e; box-shadow: 0 2px 10px #00000066; }
+[data-theme="dark"] .header .nav li a { color: #f1f3f9; }
+[data-theme="dark"] .header .nav li.active a, [data-theme="dark"] .header .nav li:hover a { color: #1a76d1; }
+[data-theme="dark"] .mc-logo { color: #f1f3f9; }
+[data-theme="dark"] .mc-logo-light, [data-theme="dark"] .mc-logo-light:hover, [data-theme="dark"] .mc-logo-light span { color: #fff; }
+[data-theme="dark"] .mc-theme-toggle { background: #242538; border-color: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-theme-toggle:hover { color: #1a76d1; border-color: #1a76d1; }
+[data-theme="dark"] .mc-auth-link { color: #f1f3f9; }
+[data-theme="dark"] .mc-auth-link:hover { color: #1a76d1; }
+[data-theme="dark"] .mobile-nav .slicknav_btn { border-color: #34364c; }
+[data-theme="dark"] .mobile-nav .slicknav_menu .slicknav_icon-bar { background-color: #f1f3f9; }
+[data-theme="dark"] .mobile-nav .slicknav_nav { background: #1e1f2e; box-shadow: 0 8px 14px #00000080; }
+[data-theme="dark"] .mobile-nav .slicknav_nav a { color: #f1f3f9; }
+[data-theme="dark"] .mobile-nav .slicknav_nav a:hover { color: #1a76d1; background: transparent; }
+
+[data-theme="dark"] .mc-muted, [data-theme="dark"] .mc-auth-sub, [data-theme="dark"] .mc-empty, [data-theme="dark"] .mc-auth-back, [data-theme="dark"] .mc-switch { color: #8b92a8; }
+[data-theme="dark"] .mc-auth-back:hover { color: #1a76d1; }
+[data-theme="dark"] .mc-label, [data-theme="dark"] .mc-subtitle, [data-theme="dark"] .mc-dash-head h3, [data-theme="dark"] .mc-doctor-info h2, [data-theme="dark"] .mc-stat span, [data-theme="dark"] .mc-form-panel h1 { color: #f1f3f9; }
+[data-theme="dark"] .mc-facts li { color: #aab0c4; }
+[data-theme="dark"] .mc-facts a, [data-theme="dark"] .mc-table a { color: #f1f3f9; }
+[data-theme="dark"] .mc-facts a:hover, [data-theme="dark"] .mc-table a:hover { color: #1a76d1; }
+[data-theme="dark"] .mc-schedule .day { color: #aab0c4; border-color: #34364c; }
+[data-theme="dark"] .mc-alert-success { background: #242538; color: #f1f3f9; }
+[data-theme="dark"] .mc-table { background: #1e1f2e; }
+[data-theme="dark"] .mc-table td { color: #aab0c4; border-color: #34364c; }
+[data-theme="dark"] .mc-table small { color: #8b92a8; }
+[data-theme="dark"] .mc-table-wrap, [data-theme="dark"] .mc-stat { box-shadow: 0 0 10px #00000066; }
+[data-theme="dark"] .mc-stat { background: #1e1f2e; }
+[data-theme="dark"] .mc-badge-pending { border-color: #8b92a8; color: #aab0c4; }
+[data-theme="dark"] .mc-badge-completed { background: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-badge-cancelled { background: #242538; color: #8b92a8; }
+[data-theme="dark"] .mc-slot span { background: #1e1f2e; border-color: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-slot:hover span { border-color: #1a76d1; color: #1a76d1; }
+[data-theme="dark"] .mc-slot input:checked + span, [data-theme="dark"] .mc-slot input:focus + span { background: #1a76d1; border-color: #1a76d1; color: #fff; }
+[data-theme="dark"] .mc-pager a { border-color: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-pager .active a, [data-theme="dark"] .mc-pager a:hover { background: #1a76d1; border-color: #1a76d1; color: #fff; }
+[data-theme="dark"] .mc-pager .disabled a { color: #5b6076; }
+[data-theme="dark"] .mc-error { color: #ff6b72; }
+
+[data-theme="dark"] .mc-auth-body, [data-theme="dark"] .mc-auth-panel { background: #14151f; }
+[data-theme="dark"] .mc-auth-form label { color: #f1f3f9; }
+[data-theme="dark"] .mc-check { color: #aab0c4 !important; }
+[data-theme="dark"] .mc-auth-form input[type="text"], [data-theme="dark"] .mc-auth-form input[type="email"], [data-theme="dark"] .mc-auth-form input[type="password"] { background: #1e1f2e; border-color: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-auth-form input:focus { border-color: #1a76d1; }
+[data-theme="dark"] .mc-row-between a, [data-theme="dark"] .mc-switch a { color: #5aa7ff; }
+[data-theme="dark"] .mc-row-between a:hover, [data-theme="dark"] .mc-switch a:hover { color: #fff; }
+
+[data-theme="dark"] .mc-doctors-bg::before { opacity: .1; filter: brightness(.55) saturate(.8); }
+[data-theme="dark"] .mc-rating, [data-theme="dark"] .mc-rating-text { color: #c9cee0; }
+[data-theme="dark"] .mc-rating-text small { color: #8b92a8; }
+[data-theme="dark"] .mc-review { border-top-color: #34364c; }
+[data-theme="dark"] .mc-review strong { color: #f1f3f9; }
+[data-theme="dark"] .mc-rate-form textarea { background: #1e1f2e; border-color: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-star-input label { color: #4a4d66; }
+[data-theme="dark"] .mc-star-input label:hover, [data-theme="dark"] .mc-star-input label:hover ~ label, [data-theme="dark"] .mc-star-input input:checked ~ label { color: #f5a623; }
+[data-theme="dark"] .mc-alert-danger { background: #3a1f27; color: #f1f3f9; }
+[data-theme="dark"] .mc-countdown { color: #ff6b72; }

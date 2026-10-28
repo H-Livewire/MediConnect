@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\AppointmentStatus;
+use App\Enums\UserRole;
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -46,6 +48,36 @@ class Doctor extends Model
     public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(DoctorRating::class);
+    }
+
+    public function scopeWithRatingStats(Builder $query): Builder
+    {
+        return $query->withAvg('ratings', 'rating')->withCount('ratings');
+    }
+
+    public function averageRating(): float
+    {
+        return round((float) ($this->ratings_avg_rating ?? $this->ratings()->avg('rating')), 1);
+    }
+
+    public function ratingsTotal(): int
+    {
+        return (int) ($this->ratings_count ?? $this->ratings()->count());
+    }
+
+    public function canBeRatedBy(?User $user): bool
+    {
+        return $user !== null
+            && $user->role === UserRole::Patient
+            && $this->appointments()
+                ->where('patient_id', $user->id)
+                ->where('status', AppointmentStatus::Completed->value)
+                ->exists();
     }
 
     public function scopeActive(Builder $query): Builder

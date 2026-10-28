@@ -79,6 +79,17 @@ class DatabaseSeeder extends Seeder
                     ]);
                 }
 
+                // Demo ratings (1–5 stars) from a few seeded patients.
+                foreach (range(1, 3) as $k) {
+                    $reviewer = User::updateOrCreate(['email' => "reviewer{$k}@mediconnect.test"], [
+                        'name' => "Demo Patient {$k}", 'phone' => "+2557200000{$k}0", 'password' => 'password', 'role' => UserRole::Patient,
+                    ]);
+                    $doctor->ratings()->updateOrCreate(['user_id' => $reviewer->id], [
+                        'rating' => 3 + (($n + $k) % 3),
+                        'comment' => $k === 1 ? 'Very professional and caring.' : null,
+                    ]);
+                }
+
                 $n++;
             }
         }

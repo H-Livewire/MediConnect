@@ -32,7 +32,7 @@
 
 <div class="ad-stats">
     @foreach ($cards as [$key, $label, $icon, $tone, $isMoney])
-        <?php $stat = $stats[$key]; ?>
+        @php($stat = $stats[$key])
         <div class="ad-card ad-stat">
             <div class="ad-stat-top">
                 <span class="ad-ico {{ $tone }}"><i class="fa {{ $icon }}"></i></span>

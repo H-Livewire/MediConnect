@@ -14,24 +14,6 @@ use Illuminate\View\View;
 
 class PasswordResetController extends Controller
 {
-    public function request(): View
-    {
-        return view('auth.access', ['panel' => 'forgot']);
-    }
-
-    public function email(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('forgot', ['email' => ['required', 'email']]);
-
-        $status = Password::sendResetLink($request->only('email'));
-
-        if ($status !== Password::RESET_LINK_SENT) {
-            return back()->withInput()->withErrors(['email' => __($status)], 'forgot');
-        }
-
-        return back()->with('status', 'If that email exists, a reset link has been sent.');
-    }
-
     public function reset(Request $request, string $token): View
     {
         return view('auth.reset', ['token' => $token, 'email' => $request->query('email', '')]);

@@ -8,7 +8,7 @@
 @endphp
 <svg viewBox="0 0 {{ $w }} {{ $h }}" class="ad-chart" role="img" aria-label="{{ $title }}">
     @for ($i = 0; $i <= 4; $i++)
-        <?php $gv = $top / 4 * $i; ?>
+        @php($gv = $top / 4 * $i)
         <line class="grid" x1="{{ $l }}" x2="{{ $w - $r }}" y1="{{ round($py($gv), 1) }}" y2="{{ round($py($gv), 1) }}"/>
         <text x="{{ $l - 8 }}" y="{{ round($py($gv) + 4, 1) }}" text-anchor="end">{{ $gv == (int) $gv ? (int) $gv : $gv }}</text>
     @endfor

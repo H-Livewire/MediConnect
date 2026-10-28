@@ -51,7 +51,7 @@
                 </form>
             </div>
             <div class="col-lg-5 col-md-12">
-                <div class="appointment-image"><img src="{{ asset('mediplus/img/appointment-care.jpg') }}" alt=""></div>
+                <div class="appointment-image"><img src="{{ asset('mediplus/img/appointment-care.png') }}" alt=""></div>
             </div>
         </div>
     </div>
