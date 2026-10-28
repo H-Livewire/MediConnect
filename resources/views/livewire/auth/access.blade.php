@@ -37,6 +37,7 @@
             </button>
         </form>
         <p class="mc-switch">Don't have an account? <a href="{{ route('register') }}" wire:click.prevent="show('register')">Register</a></p>
+        <p class="mc-switch mc-switch-alt">Own a hospital? <a href="{{ route('hospital.register') }}">Register your hospital</a></p>
     </section>
     @endif
 

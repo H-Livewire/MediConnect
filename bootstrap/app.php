@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\EnsureHospitalAccess;
 use App\Http\Middleware\EnsureUserHasRole;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -14,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'role' => EnsureUserHasRole::class,
+            'hospital.access' => EnsureHospitalAccess::class,
         ]);
 
         $middleware->redirectGuestsTo(fn () => route('login'));

@@ -267,3 +267,10 @@
 [data-theme="dark"] .mc-star-input label:hover, [data-theme="dark"] .mc-star-input label:hover ~ label, [data-theme="dark"] .mc-star-input input:checked ~ label { color: #f5a623; }
 [data-theme="dark"] .mc-alert-danger { background: #3a1f27; color: #f1f3f9; }
 [data-theme="dark"] .mc-countdown { color: #ff6b72; }
+
+/* phase 1 */
+[data-theme="dark"] .mc-form-step { color: #f1f3f9; }
+[data-theme="dark"] .mc-opt { color: #8b92a8; }
+[data-theme="dark"] .mc-auth-form textarea { background: #1e1f2e; border-color: #34364c; color: #f1f3f9; }
+[data-theme="dark"] .mc-auth-form textarea:focus { border-color: #1a76d1; }
+[data-theme="dark"] .mc-switch-alt a { color: #5aa7ff; }

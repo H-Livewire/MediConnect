@@ -13,12 +13,12 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         return view('pages.home', [
-            'hospitals' => Hospital::where('is_active', true)->latest()->take(8)->get(),
+            'hospitals' => Hospital::visible()->latest()->take(8)->get(),
             'specialties' => Specialty::orderBy('name')->take(6)->get(),
             'doctors' => Doctor::active()->withRatingStats()->with(['user', 'specialty', 'hospital'])->inRandomOrder()->take(4)->get(),
             'stats' => [
                 'doctors' => Doctor::active()->count(),
-                'hospitals' => Hospital::where('is_active', true)->count(),
+                'hospitals' => Hospital::visible()->count(),
                 'specialties' => Specialty::count(),
                 'appointments' => Appointment::count(),
             ],

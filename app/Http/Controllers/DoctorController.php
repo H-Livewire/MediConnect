@@ -27,13 +27,13 @@ class DoctorController extends Controller
         return view('doctors.index', [
             'doctors' => $doctors,
             'specialties' => Specialty::orderBy('name')->get(),
-            'hospitals' => Hospital::where('is_active', true)->orderBy('name')->get(),
+            'hospitals' => Hospital::visible()->orderBy('name')->get(),
         ]);
     }
 
     public function show(Request $request, Doctor $doctor): View
     {
-        abort_unless($doctor->is_active, 404);
+        abort_unless($doctor->is_active && $doctor->hospital->isVisible(), 404);
 
         return view('doctors.show', [
             'doctor' => $doctor->loadAvg('ratings', 'rating')->loadCount('ratings')->load(['user', 'specialty', 'hospital', 'schedules']),

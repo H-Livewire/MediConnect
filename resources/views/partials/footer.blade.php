@@ -30,6 +30,7 @@
                                     <li><a href="{{ route('afya-smart') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Afya Smart</a></li>
                                     <li><a href="{{ route('appointments.create') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Book Now</a></li>
                                     <li><a href="{{ route('login') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Login</a></li>
+                                    <li><a href="{{ route('hospital.register') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>For Hospitals</a></li>
                                     <li><a href="{{ route('contact') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
                                 </ul>
                             </div>

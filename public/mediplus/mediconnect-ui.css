@@ -177,3 +177,16 @@
 
 /* Get Started button: rounded corners */
 .header .header-inner .mc-header-end .get-quote .btn { border-radius: 30px; }
+
+/* ---------- Hospital registration (wide auth card) ---------- */
+.mc-auth-card.mc-auth-wide { max-width: 640px; }
+.mc-form-step { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #2c2d3f; margin: 22px 0 14px; }
+.mc-form-step:first-of-type { margin-top: 4px; }
+.mc-form-step span { width: 26px; height: 26px; border-radius: 50%; background: #1a76d1; color: #fff; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; }
+.mc-opt { color: #888; font-weight: 400; font-size: 12px; }
+.mc-auth-form textarea { width: 100%; padding: 12px 14px; border: 1px solid #eee; border-radius: 4px; background: #fff; color: #2c2d3f; font-size: 14px; resize: vertical; transition: border-color .3s ease, box-shadow .3s ease; }
+.mc-auth-form textarea:focus { outline: 0; border-color: #1a76d1; box-shadow: 0 0 0 3px #1a76d126; }
+.mc-terms { align-items: flex-start; margin: 6px 0 16px; line-height: 1.4; }
+.mc-terms input { margin-top: 3px; }
+.mc-switch-alt { margin-top: 8px; }
+.mc-switch-alt a { color: #1a76d1; font-weight: 500; }

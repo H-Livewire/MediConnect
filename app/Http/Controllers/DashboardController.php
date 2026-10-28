@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Enums\UserRole;
 use App\Models\Appointment;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -26,24 +25,8 @@ class DashboardController extends Controller
                     ->where('doctor_id', $user->doctor?->id)
                     ->orderBy('appointment_date')->orderBy('appointment_time')->paginate(10),
             ]),
-            UserRole::HospitalAdmin => $this->hospitalDashboard($user, $with),
+            UserRole::HospitalAdmin => redirect()->route('hospital.dashboard'),
             UserRole::SuperAdmin => redirect()->route('admin.dashboard'),
         };
-    }
-
-    /**
-     * @param  list<string>  $with
-     */
-    private function hospitalDashboard(User $user, array $with): View
-    {
-        $hospital = $user->managedHospital;
-
-        return view('dashboard.hospital', [
-            'hospital' => $hospital,
-            'doctors' => $hospital?->doctors()->with(['user', 'specialty'])->get() ?? collect(),
-            'appointments' => Appointment::with($with)
-                ->where('hospital_id', $hospital?->id)
-                ->orderBy('appointment_date')->orderBy('appointment_time')->paginate(10),
-        ]);
     }
 }

@@ -21,7 +21,7 @@ class ListingController extends Controller
         return view('admin.hospitals', [
             'hospitals' => Hospital::with('admin')->withCount('doctors')
                 ->when($term, fn ($q) => $q->where(fn ($w) => $w->where('name', 'like', "%{$term}%")->orWhere('city', 'like', "%{$term}%")))
-                ->orderBy('name')->paginate(15)->withQueryString(),
+                ->orderByRaw('verified_at is null desc')->orderBy('name')->paginate(15)->withQueryString(),
         ]);
     }
 

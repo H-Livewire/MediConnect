@@ -25,7 +25,7 @@
                 <a href="{{ route('home') }}" class="mc-auth-back"><i class="fa fa-angle-left"></i> Back to home</a>
                 @include('partials.theme-toggle')
             </div>
-            <div class="mc-auth-card">
+            <div class="mc-auth-card @yield('card_class')">
                 <a href="{{ route('home') }}" class="mc-logo mc-auth-logo">Medi<span>Connect</span></a>
                 @isset($slot){{ $slot }}@else @yield('content') @endisset
             </div>

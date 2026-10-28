@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Doctor extends Model
 {
@@ -17,12 +18,12 @@ class Doctor extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'user_id', 'hospital_id', 'specialty_id', 'bio', 'experience_years', 'consultation_fee', 'photo', 'is_active',
+        'user_id', 'hospital_id', 'specialty_id', 'bio', 'experience_years', 'consultation_fee', 'photo', 'is_active', 'away_until',
     ];
 
     protected function casts(): array
     {
-        return ['is_active' => 'boolean'];
+        return ['is_active' => 'boolean', 'away_until' => 'date'];
     }
 
     public function user(): BelongsTo
@@ -82,12 +83,22 @@ class Doctor extends Model
 
     public function scopeActive(Builder $query): Builder
     {
-        return $query->where('is_active', true);
+        return $query->where('is_active', true)
+            ->whereHas('hospital', fn (Builder $hospital) => $hospital->visible());
     }
 
     public function photoUrl(): string
     {
+        if ($this->photo && str_contains($this->photo, '/')) {
+            return Storage::disk('public')->url($this->photo);
+        }
+
         return asset('mediplus/img/'.($this->photo ?: 'team1.jpg'));
+    }
+
+    public function isAway(?CarbonInterface $on = null): bool
+    {
+        return $this->away_until !== null && ($on ?? today())->copy()->startOfDay()->lte($this->away_until);
     }
 
     /**
@@ -97,7 +108,7 @@ class Doctor extends Model
      */
     public function availableSlots(CarbonInterface $date): array
     {
-        if ($date->isBefore(today())) {
+        if ($date->isBefore(today()) || $this->isAway($date)) {
             return [];
         }
 

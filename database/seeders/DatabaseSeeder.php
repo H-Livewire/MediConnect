@@ -54,6 +54,9 @@ class DatabaseSeeder extends Seeder
 
             $hospital = Hospital::updateOrCreate(['slug' => Str::slug($name)], [
                 'admin_id' => $admin->id, 'name' => $name, 'city' => $city, 'address' => $address,
+                'verified_at' => now(), 'subscription_ends_at' => now()->addYear(),
+                'services' => ['General Medicine', 'Laboratory', 'Pharmacy', 'Maternity'], 'insurances' => ['NHIF', 'AAR', 'Jubilee'],
+                'registration_number' => 'REG-00'.($i + 1),
                 'phone' => '+25522000000'.$i, 'email' => 'info'.$i.'@mediconnect.test', 'image' => $image,
                 'description' => $name.' provides quality healthcare services in '.$city.', with experienced specialists and modern facilities.',
             ]);
