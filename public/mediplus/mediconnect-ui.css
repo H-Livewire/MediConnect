@@ -9,8 +9,8 @@
 .mc-main-menu .nav { flex-wrap: nowrap; }
 .header .mc-main-menu .nav li a { padding: 28px 10px; white-space: nowrap; }
 .mc-header-end { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
-.header .mc-header-end .get-quote { margin: 0; display: block !important; }
-.header .mc-header-end .get-quote .btn { margin: 0; white-space: nowrap; }
+.header .header-inner .mc-header-end .get-quote { margin: 0; padding: 0; display: block !important; }
+.header .header-inner .mc-header-end .get-quote .btn { display: inline-block; margin: 0; padding: 13px 25px; white-space: nowrap; }
 .mc-header-end .mc-inline-form { margin: 0; }
 .mc-auth-link { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; font-size: 14px; font-weight: 500; color: #2c2d3f; }
 .mc-auth-link:hover { color: #1a76d1; }
@@ -42,12 +42,24 @@
     .mc-logo { font-size: 22px; }
     .mc-header-end { gap: 8px; }
     .mc-theme-toggle { width: 38px; height: 38px; }
-    .header .mc-header-end .get-quote .btn { padding: 10px 14px; font-size: 13px; }
+    .header .header-inner .mc-header-end .get-quote .btn { padding: 10px 14px; font-size: 13px; }
     .mc-header-end .mc-inline-form { display: none; }
 }
 @media (max-width: 360px) {
-    .mc-logo { font-size: 19px; }
-    .header .mc-header-end .get-quote .btn { padding: 9px 11px; font-size: 12px; }
+    .header .header-inner .container { padding-left: 10px; padding-right: 10px; }
+    .mc-header-row, .mc-header-end { gap: 6px; }
+    .mc-logo { font-size: 18px; }
+    .mc-theme-toggle { width: 34px; height: 34px; }
+    .mobile-nav .slicknav_btn { padding: 9px 7px; }
+    .header .header-inner .mc-header-end .get-quote .btn { padding: 8px 10px; font-size: 12px; }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header .mc-main-menu .nav li { margin-right: 2px; }
+    .header .mc-main-menu .nav li a { padding: 28px 7px; font-size: 13px; }
+    .mc-header-row { gap: 10px; }
+    .mc-header-end { gap: 8px; }
+    .header .header-inner .mc-header-end .get-quote .btn { padding: 12px 16px; }
 }
 
 /* ---------- Doctor cards ---------- */
@@ -60,14 +72,13 @@
 /* ---------- Auth split screen ---------- */
 .mc-auth-body { margin: 0; background: #fff; }
 .mc-auth { display: flex; min-height: 100vh; }
-.mc-auth-visual { flex: 0 0 50%; position: relative; background-size: cover; background-position: center; }
-.mc-auth-visual::before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, #2c2d3fd9 0%, #1a76d199 100%); }
+.mc-auth-visual { flex: 0 0 60%; position: relative; background-size: cover; background-position: center; }
 .mc-auth-visual-inner { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 56px; color: #fff; }
 .mc-logo-light, .mc-logo-light:hover, .mc-logo-light span { color: #fff; }
 .mc-logo-light span { opacity: .75; }
 .mc-auth-tagline h2 { color: #fff; font-size: 34px; font-weight: 600; line-height: 1.25; margin-bottom: 14px; }
 .mc-auth-tagline p { color: #ffffffe6; font-size: 15px; max-width: 420px; margin: 0; }
-.mc-auth-panel { flex: 1 1 50%; display: flex; flex-direction: column; padding: 24px 32px; background: #fff; }
+.mc-auth-panel { flex: 1 1 40%; display: flex; flex-direction: column; padding: 24px 32px; background: #fff; }
 .mc-auth-top { display: flex; align-items: center; justify-content: space-between; }
 .mc-auth-back { color: #888; font-size: 14px; }
 .mc-auth-back:hover { color: #1a76d1; text-decoration: none; }
@@ -86,7 +97,10 @@
 .mc-row-between a:hover, .mc-switch a:hover { color: #2c2d3f; text-decoration: none; }
 .mc-check { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-weight: 400 !important; color: #555 !important; }
 .mc-check input { margin: 0; }
-.mc-block { display: block; width: 100%; border: 0; cursor: pointer; }
+.mc-block { display: block; width: 100%; cursor: pointer; }
+.mc-block, .mc-card-btn, .mc-btn-inline { background: #1a76d1; color: #fff; border: 0; border-radius: 4px; padding: 13px 25px; font-size: 14px; font-weight: 500; line-height: 21px; text-transform: capitalize; transition: all .4s ease; }
+.mc-block:hover, .mc-card-btn:hover, .mc-btn-inline:hover { background: #2c2d3f; color: #fff; text-decoration: none; }
+.mc-block:focus-visible { outline: 2px solid #1a76d1; outline-offset: 2px; }
 .mc-switch { text-align: center; color: #888; margin: 20px 0 0; }
 
 @media (max-width: 991px) {
@@ -101,9 +115,38 @@
     .mc-form-panel h1 { font-size: 24px; }
 }
 
-/* ---------- Doctors section background (hex pattern, low opacity) ---------- */
-.mc-doctors-bg { position: relative; isolation: isolate; overflow: hidden; }
-.mc-doctors-bg::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("img/doctors-bg.jpg") center / cover no-repeat; opacity: .28; pointer-events: none; }
+/* Auth: logo in card + password visibility toggle */
+.mc-auth-logo { display: inline-block; margin-bottom: 26px; }
+.mc-pass { position: relative; }
+.mc-pass input { padding-right: 46px !important; }
+.mc-pass-toggle { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; background: none; color: #888; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; padding: 0; transition: color .2s ease; }
+.mc-pass-toggle:hover, .mc-pass-toggle.is-visible { color: #1a76d1; }
+.mc-pass-toggle:focus-visible { outline: 2px solid #1a76d1; outline-offset: 1px; }
+.mc-pass-toggle .mc-eye-off { display: none; }
+.mc-pass-toggle.is-visible .mc-eye { display: none; }
+.mc-pass-toggle.is-visible .mc-eye-off { display: block; }
+
+/* ---------- Get Started arrow ---------- */
+.mc-btn-arrow i { margin-left: 6px; font-size: 15px; vertical-align: -1px; transition: transform .25s ease; }
+.mc-btn-arrow:hover i { transform: translateX(4px); }
+@media (max-width: 360px) { .mc-btn-arrow i { margin-left: 4px; font-size: 13px; } }
+
+/* ---------- Section titles: padding + responsive sizing ---------- */
+.section-title { padding-left: 16px; padding-right: 16px; }
+.section-title h2 { font-size: clamp(22px, 5.4vw, 32px); line-height: 1.3; overflow-wrap: anywhere; }
+.section-title p { overflow-wrap: anywhere; }
+@media (max-width: 575px) {
+    .section-title { padding-left: 20px; padding-right: 20px; margin-bottom: 36px; }
+    .section-title h2 { margin-bottom: 14px; }
+}
+@media (max-width: 360px) { .section-title { padding-left: 14px; padding-right: 14px; } }
+
+/* ---------- Doctors section background (replaces template testi-bg) ---------- */
+.team.mc-doctors-bg { background: #e9f4fb; background-image: none; position: relative; isolation: isolate; overflow: hidden; }
+.team.mc-doctors-bg::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("img/doctors-bg.jpg") center / cover no-repeat; opacity: .75; pointer-events: none; }
+.team.mc-doctors-bg .section-title h2 { color: #2c2d3f; }
+.team.mc-doctors-bg .section-title p { color: #4d566b; }
+@media (max-width: 767px) { .team.mc-doctors-bg::before { background-position: 22% center; opacity: .6; } }
 
 /* ---------- Star rating ---------- */
 .mc-rating { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 6px 0 2px; font-size: 13px; color: #555; }

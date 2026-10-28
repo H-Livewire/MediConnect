@@ -26,7 +26,7 @@
                         @auth
                             <a href="{{ route('dashboard') }}" class="btn">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="btn">Get Started</a>
+                            <a href="{{ route('login') }}" class="btn mc-btn-arrow">Get Started <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         @endauth
                     </div>
                     @auth

@@ -92,3 +92,11 @@
 .mc-pager a { display: block; padding: 8px 14px; border: 1px solid #eee; border-radius: 4px; color: #2c2d3f; }
 .mc-pager .active a, .mc-pager a:hover { background: #1a76d1; border-color: #1a76d1; color: #fff; }
 .mc-pager .disabled a { color: #ccc; pointer-events: none; }
+
+/* Header actions: Book Appointment followed by Login | Register */
+.mc-header-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+.mc-header-actions .btn { margin: 0; white-space: nowrap; }
+.mc-auth-link { color: #2c2d3f; font-weight: 500; font-size: 14px; background: none; border: 0; padding: 0; cursor: pointer; }
+.mc-auth-link:hover { color: #1a76d1; text-decoration: none; }
+.mc-auth-sep { color: #888; }
+@media (max-width: 991px) { .mc-header-actions { justify-content: flex-start; margin-top: 15px; } }
