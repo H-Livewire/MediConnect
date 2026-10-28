@@ -1,0 +1,102 @@
+/* MediConnect additions — uses only Mediplus Lite palette:
+   primary #1a76d1, dark #2c2d3f, text #888/#555/#333, borders #eee, error #e13138 (from template) */
+
+.mc-logo { font-size: 28px; font-weight: 700; color: #2c2d3f; letter-spacing: -0.5px; display: inline-block; line-height: 1; }
+.mc-logo span { color: #1a76d1; }
+.mc-logo:hover { color: #2c2d3f; text-decoration: none; }
+
+.mc-inline-form { display: inline; margin: 0; }
+.mc-link-button { background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; }
+.mc-link-button:hover { color: #1a76d1; }
+
+.mc-flash { margin-top: 20px; }
+.mc-alert { padding: 12px 18px; border-radius: 4px; font-size: 14px; }
+.mc-alert-success { background: #dff5e8; color: #2c2d3f; border-left: 4px solid #1a76d1; }
+.mc-error { display: block; color: #e13138; margin-top: 4px; font-size: 13px; }
+.mc-muted { color: #888; }
+.mc-empty { color: #888; padding: 30px 0; }
+.mc-label { display: block; color: #2c2d3f; font-weight: 500; margin-bottom: 10px; }
+.mc-subtitle { color: #2c2d3f; font-weight: 600; margin: 40px 0 15px; }
+.mc-disclaimer { margin-top: 30px; font-size: 13px; }
+
+.mc-btn-inline { display: inline-block; }
+.team .button, .about-content .button, .mc-doctor-info .button { margin-top: 20px; }
+.team .single-team .t-bottom p.mc-muted { margin-top: 4px; font-size: 13px; }
+
+/* Filters on listing pages reuse the template appointment form look */
+.mc-filter.appointment { padding: 0 0 30px; background: transparent; }
+.mc-filter .form { margin: 0; }
+.mc-filter .form-group { margin-bottom: 15px; }
+.mc-filter .button .btn { width: 100%; }
+
+/* Doctor / hospital detail */
+.mc-doctor-photo img { width: 100%; border-radius: 5px; box-shadow: 0 0 10px #00000024; }
+.mc-doctor-info h2 { color: #2c2d3f; font-weight: 600; margin-bottom: 5px; }
+.mc-doctor-info p { margin-bottom: 15px; }
+.mc-specialty { color: #1a76d1; font-weight: 500; }
+.mc-facts { list-style: none; padding: 0; margin: 20px 0; }
+.mc-facts li { color: #555; margin-bottom: 10px; }
+.mc-facts li i { color: #1a76d1; margin-right: 10px; width: 18px; display: inline-block; }
+.mc-facts a { color: #2c2d3f; }
+.mc-facts a:hover { color: #1a76d1; }
+.mc-schedule { max-width: 380px; }
+.mc-schedule .day { color: #555; border-bottom: 1px solid #eee; padding: 8px 0; }
+.mc-schedule .day span { float: right; color: #1a76d1; }
+.mc-hospital-card img { width: 100%; border-radius: 4px; margin-bottom: 15px; }
+.mc-hospital-card p i { color: #1a76d1; }
+
+/* Contact */
+.mc-contact-card { background: #1a76d1; color: #fff; padding: 40px; border-radius: 5px; height: 100%; }
+.mc-contact-card h2 { color: #fff; font-weight: 600; margin-bottom: 25px; }
+.mc-contact-list { list-style: none; padding: 0; margin: 0; }
+.mc-contact-list li { margin-bottom: 15px; font-size: 15px; }
+.mc-contact-list i { width: 28px; }
+
+/* Booking slots */
+.mc-slots { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+.mc-slot { margin: 0; cursor: pointer; }
+.mc-slot input { position: absolute; opacity: 0; }
+.mc-slot span { display: inline-block; padding: 8px 16px; border: 1px solid #eee; border-radius: 4px; background: #fff; color: #2c2d3f; transition: all .3s ease; }
+.mc-slot:hover span { border-color: #1a76d1; color: #1a76d1; }
+.mc-slot input:checked + span, .mc-slot input:focus + span { background: #1a76d1; border-color: #1a76d1; color: #fff; }
+.appointment .form input[type="date"] { width: 100%; }
+
+.mc-confirm h1 i { margin-right: 10px; }
+.mc-confirm .mc-facts { text-align: left; display: inline-block; margin-bottom: 30px; }
+
+/* Dashboards */
+.mc-dashboard .mc-dash-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 10px; }
+.mc-dash-head h3 { color: #2c2d3f; font-weight: 600; margin: 0; }
+.mc-table-wrap { overflow-x: auto; box-shadow: 0 0 10px #00000024; border-radius: 5px; }
+.mc-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+.mc-table th { background: #2c2d3f; color: #fff; font-weight: 500; padding: 12px 15px; text-align: left; white-space: nowrap; }
+.mc-table td { padding: 12px 15px; border-bottom: 1px solid #eee; color: #555; vertical-align: middle; }
+.mc-table small { color: #888; }
+.mc-table a { color: #2c2d3f; }
+.mc-table a:hover { color: #1a76d1; }
+.mc-actions { white-space: nowrap; }
+.mc-actions form { display: inline-block; margin-right: 6px; }
+.mc-badge { display: inline-block; padding: 3px 12px; border-radius: 30px; font-size: 12px; font-weight: 500; }
+.mc-badge-pending { border: 1px solid #888; color: #888; }
+.mc-badge-confirmed { background: #1a76d1; color: #fff; }
+.mc-badge-completed { background: #2c2d3f; color: #fff; }
+.mc-badge-cancelled { background: #eee; color: #888; text-decoration: line-through; }
+.mc-btn-sm { background: #1a76d1; color: #fff; border: 0; border-radius: 4px; padding: 5px 12px; font-size: 12px; cursor: pointer; transition: all .3s ease; }
+.mc-btn-sm:hover { background: #2c2d3f; }
+.mc-btn-danger { background: #e13138; }
+.mc-stat { background: #fff; box-shadow: 0 0 10px #00000024; border-radius: 5px; padding: 25px; text-align: center; margin-bottom: 25px; border-top: 3px solid #1a76d1; }
+.mc-stat span { display: block; font-size: 34px; font-weight: 600; color: #2c2d3f; }
+.mc-stat p { margin: 0; }
+
+.mc-pager { list-style: none; display: flex; justify-content: center; gap: 6px; padding: 0; margin: 30px 0 0; }
+.mc-pager a { display: block; padding: 8px 14px; border: 1px solid #eee; border-radius: 4px; color: #2c2d3f; }
+.mc-pager .active a, .mc-pager a:hover { background: #1a76d1; border-color: #1a76d1; color: #fff; }
+.mc-pager .disabled a { color: #ccc; pointer-events: none; }
+
+/* Header actions: Book Appointment followed by Login | Register */
+.mc-header-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+.mc-header-actions .btn { margin: 0; white-space: nowrap; }
+.mc-auth-link { color: #2c2d3f; font-weight: 500; font-size: 14px; background: none; border: 0; padding: 0; cursor: pointer; }
+.mc-auth-link:hover { color: #1a76d1; text-decoration: none; }
+.mc-auth-sep { color: #888; }
+@media (max-width: 991px) { .mc-header-actions { justify-content: flex-start; margin-top: 15px; } }
